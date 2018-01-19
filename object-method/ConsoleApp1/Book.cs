@@ -7,7 +7,7 @@ namespace TaskBook
         public string Title;
         private readonly string _author;
         private int _id;
-        private double _price;
+        public double _price;
 
         // Consructor
         public Book()
