@@ -1,34 +1,63 @@
 ﻿using System;
 
-namespace TaskFirma
+namespace Task_lippu
 {
     class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Enter customer data...");
 
-            Firma[] companies = new Firma[3];
+            Console.Write("Enter name  :  ");
 
-            companies[0] = new Firma("Kartonkitehdas", "Tikkapolku 4, Vantaa", "020 0688 433", 1200400, 870000);
-            companies[1] = new Firma("Konsultti firma", "Hiihtotie 2 Tampere", "020 0500 600", 250100, 440600);
-            companies[2] = new Firma("Tekniikan ihme", "Onnelantie 8 Espoo", "020 572 042", 2260500, 10560210);
+            var name = Console.ReadLine();
+            var ticket = new Ticket(name);
 
-            
-
-            for(int i=0;i<companies.Length;i++)
+            int age = -1;
+            while (age < 0)
             {
-                Console.WriteLine(companies[i].ToString());
-                companies[i].ProfitOfCompany();
-                
+
+                Console.Write("Enter age");
+                if (!int.TryParse(Console.ReadLine(), out age))
+                {
+                    Console.WriteLine("Invalid age!");
+                    age = -1;
+                }
+                else
+                {
+
+                    ticket.Age = age;
+                }
             }
 
-            
+            ticket.IsMtkmember = YesNo("Is customer a member of MTK");
+            ticket.IsConscript = YesNo("Is customer a conscript");
+            ticket.IsStudent = YesNo("Is customer a student");
 
-
-
-
-
+            Console.WriteLine($"Price for {ticket.Name} is {ticket.Whatprice():F2}");
             Console.ReadKey();
         }
+
+       
+
+        private static bool YesNo(string prompt)
+        {
+            while (true)
+            {
+                Console.Write("{0} (Y/N) : ", prompt);
+                char c = char.ToUpper(Console.ReadKey().KeyChar);
+                Console.WriteLine();
+                if (c == 'Y')
+                {
+                    return true;
+                }
+                if (c == 'N')
+                {
+                    return false;
+                }
+                Console.WriteLine("Please answer Y or N!");
+            }
+        }
     }
-}
+}   
+
