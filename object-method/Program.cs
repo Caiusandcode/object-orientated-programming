@@ -1,75 +1,27 @@
 ﻿using System;
-using Literature;
-namespace Taskbooknew
-{
+
+namespace Vechile
+{ 
     class Program
     {
         static void Main(string[] args)
         {
 
+            Car Vehicle1 = new Car("auto", "audi", 2018, 40000, 2.0, "a6", 4 );
+            Console.WriteLine($"{Vehicle1.PrintInformation()}");
+            Car Vehicle2 = new Car("maasturi", "bmw", 2015,35000, 4.5, "alfa", 4 );
 
-           // Book.ChangeCategory("Draama");
-            Console.WriteLine("Book luokan testeri!\n");
-            Console.WriteLine($"Kategoria nyt:\n {Book.Category}\n");        
-            Book.ChangeCategory("Rakentaminen");
-            Console.WriteLine($"Kategoria nyt:\n {Book.Category}\n");
+            Console.WriteLine($"{Vehicle2.PrintInformation()}");
 
-            Book book1 = new Book("Häräntappo ase", "Anna-Leena Härkönen", "Otava", 10, "Draama");
-            Book book2 = new Book("Rooman sota", "Kaarlo Eerik", "Euroopan kirjapaino", 25, "Sota");
-            Book book3 = new Book("Rakettitiede", "Olavi Kiiski", "WSOY", 42.00, "Tietokirjallisuus");
-            Book book4 = new Book("LVI Asennus kotikonstein", "Tuula", "25", 12.00, "Rakentaminen");
-            Book book5 = new Book("Aku Ankka", "Don Rosa", "Helsinki Magazines", 30.00, "Sarjakuvat");
+            Lorry kuorma = new Lorry("Kuorma auto", "ford", 2014, 50000, 6000, 0.4 );
+            Console.WriteLine($"{kuorma.PrintInformation()}");
 
-            
-            book2.GetBook("Rooman sota");
-           
-            book5.GetBook("Aku Ankka");
-            book5.GetBook("Seikkailu kirja");
-            
 
-            Console.WriteLine("Kirjakauppamme top 5 Kirjailijat\n");
-            Console.WriteLine(book1.Author);
-            Console.WriteLine(book2.Author);
-            Console.WriteLine(book3.Author);
-            Console.WriteLine(book4.Author);
-            Console.WriteLine(book5.Author);
-           
-
-            Author author1 = new Author("Anna-Leena Härkönen", "15.3.1962", book1);
-            author1.PrintData();
-
-            Author author2 = new Author("Kaarlo Eerik", "11.2.1704", book2);
-            author2.PrintData();
-
-            Author author3 = new Author("Olavi Kiiski", "12.1.1992", book3);
-            author3.PrintData();
-
-            Author author4 = new Author("Heikki ", "19.10.1989", book4);
-            author4.PrintData();
-
-            Author author5 = new Author("Don Rosa", "9.2.1952", book5);
-            author5.PrintData();
-
-         
+           Vehicle ajopeli = new Vehicle("auto", "rändöm", 2050, 4500);
+           Console.WriteLine(ajopeli.ToString());
 
             Console.ReadKey();
+
         }
-
-
-       // public static Book[] GreateData(Book[] books)
-       // {
-         //   books[0] = new Book("Häräntappo ase", "Anna-Leena Härkönen", "Otava", 10, "Draama");
-           // books[1] = new Book("Rooman sota", "Kaarlo Eerik", "Euroopan kirjapaino", 25, "Sota");
-           // books[2] = new Book("Rakettitiede", "Olavi Kiiski", "WSOY", 42.00, "Tietokirjallisuus");
-           // books[3] = new Book("LVI Asennus kotikonstein", "Heikki", "25", 12.00, "Rakentaminen");
-        //    books[4] = new Book("Aku Ankka", "Don Rosa", "Helsinki Magazines", 30, "Huumori");
-
-          //  return books;
-          
-            
-          
-        
     }
 }
-    
-
