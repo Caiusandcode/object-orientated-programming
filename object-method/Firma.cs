@@ -11,74 +11,76 @@ namespace TaskFirma
         public string Adress;
         public string Phone;
         public double Outcome;
-        public double Income;
+        public double Outgoings;
 
 
         //Constructor
-        //public Firma()
-        //{
-        //    Name = "unknown";
-        //    Adress = "unknown";
-        //    Phone = 0;
-        //    Outcome = 0;
-        //    Income = 0;
+       
 
-        //}
-
-        public Firma(string name, string adress, string phone, int outcome, int income)
+        public Firma(string name, string adress, string phone, int outcome, int outgoings)
         {
             Name = name;
             Adress = adress;
             Phone = phone;
             Outcome = outcome;
-            Income = income;
+            Outgoings =  outgoings;
 
         }
+
         public Firma()
         {
             Name = "TakuuAuto";
             Adress = "Kivitie 37 00700 Malmi, Helsinki";
             Phone = "0200 770 990";
             Outcome = 530400;
-            Income = 681500;
+            Outgoings = 256000;
         }
 
         // Copy constructor.
-        public Firma(Firma previousFirma)
+        public Firma(Firma firma)
         {
-            Name = previousFirma.Name;
-            Adress = previousFirma.Adress;
-            Phone = previousFirma.Phone;
-            Outcome = previousFirma.Outcome;
-            Income = previousFirma.Income;
+            Name = firma.Name;
+            Adress = firma.Adress;
+            Phone = firma.Phone;
+            Outcome = firma.Outcome;
+            Outgoings = firma.Outgoings;
         }
 
         //Methods
 
         public void ProfitOfCompany()
         {
-            double profit = (Income - Outcome) / Outcome * 100;
+            double profit = ((double)(Outcome - Outgoings) / (double)Outgoings);
+            Console.WriteLine($"Yrityksen {Name} voittoprosentti on: {profit * 100}%");
 
-            if (profit <= 100)
-                Console.WriteLine($"Firmalla {Name} menee kehnosti.");
-            else if (profit > 100 && profit <= 200)
-                Console.WriteLine($"Firmalla {Name} menee tyydyttävästi");
-            else
-                Console.WriteLine($"Firmalla {Name} menee hyvin");
+            if (profit <= 1)
+            {
+                Console.WriteLine($"Yrityksellä {Name} menee kehnosti.\n");
+            }
+            else if (profit > 1 && profit < 3)
+            {
+                Console.WriteLine($"Yrityksellä {Name} menee tyydyttävästi.\n");
+            }
+            else if (profit >= 3)
+            {
+                Console.WriteLine($"Yrityksellä {Name} menee hyvin.\n");
+            }
         }
 
-        public override string ToString()
+        public void Print()
         {
-            string result = $"------------------------\n" +
-                 $"Firman nimi:\t{Name}\n" +
-                 $"Osoite:\t{Adress}\n" +
-                 $"Puhelin:\t\t{Phone}\n" +
-                 $"Menot:\t{Outcome}\n" +
-                 $"Tulot:\t{Income}\n" +
-                 $"======================\n";
+            Console.WriteLine($"--------------------------------\n" +
+            $"Firman nimi:\t\t{Name}\n" +
+            $"Osoite:\t\t{Adress}\n" +
+            $"Puhelin:\t\t{Phone}\n" +
+            $"Tulot:\t\t{Outcome}\n" +
+            $"Menot:\t\t{Outgoings}\n" +
+            
+            $"===========================================\n");
 
 
-            return result;
+           
+            
         }
     }
 }
